@@ -66,7 +66,7 @@ Map vendingMachine(int money, int productNo) {
     return {'error': 'No Such Item,Please try again'};
   }
   Map subMap = products.firstWhere((x) => x['number'] == productNo);
-  print(subMap['name']);
+
   if (subMap['price'] > money) {
     return {'error': 'Invalid Amount'};
   }
@@ -86,35 +86,30 @@ List<int> getChange(int totalMoney, int productPrice) {
         change.add(100);
       }
       totalMoney = totalMoney - (numberOfNotes * 100);
-      print('total money now is $totalMoney');
     } else if (totalMoney ~/ 50 != 0) {
       int numberOfNotes = totalMoney ~/ 50;
       for (int i = 0; i < numberOfNotes; i++) {
         change.add(50);
       }
       totalMoney = totalMoney - (numberOfNotes * 50);
-      print('total money now is $totalMoney');
     } else if (totalMoney ~/ 20 != 0) {
       int numberOfNotes = totalMoney ~/ 20;
       for (int i = 0; i < numberOfNotes; i++) {
         change.add(20);
       }
       totalMoney = totalMoney - (numberOfNotes * 20);
-      print('total money now is $totalMoney');
     } else if (totalMoney ~/ 10 != 0) {
       int numberOfNotes = totalMoney ~/ 10;
       for (int i = 0; i < numberOfNotes; i++) {
         change.add(10);
       }
       totalMoney = totalMoney - (numberOfNotes * 10);
-      print('total money now is $totalMoney');
     } else if (totalMoney ~/ 5 != 0) {
       int numberOfNotes = totalMoney ~/ 5;
       for (int i = 0; i < numberOfNotes; i++) {
         change.add(5);
       }
       totalMoney = totalMoney - (numberOfNotes * 5);
-      print('total money now is $totalMoney');
     }
   }
   return change;
